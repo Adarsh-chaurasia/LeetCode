@@ -1,11 +1,14 @@
-arr=[40,30,20,10]
-array=arr
-print(arr)
-array.sort()
-print(array)
-output=[]
-for i in range(len(arr)):
-    print(arr.index(array[i])+1)
-            
-            
-  
+class Solution:
+    def arrayRankTransform(self, arr: List[int]) -> List[int]:
+        s=sorted(arr)
+        rank=1
+        d={}
+        for i in s:
+            if i not in d:
+                d[i]=rank
+                rank+=1
+        j=0
+        for i in arr:
+            arr[j]=d[i]
+            j+=1
+        return arr
